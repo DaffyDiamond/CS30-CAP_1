@@ -1,4 +1,13 @@
-# v0.1.2
+# v0.1.4 **"Formatting and solving problems"**
+# v0.1.3 **"Implementing user input loop"**
+- main.py
+    - input loop established
+    - invalid inputs dealt with
+- functions.py
+    - enhancements and updates
+    - new method created
+- database.py updated
+# v0.1.2 **"Foundation of program and database.py"**
 > - database.py created
 - main.py 
     - while loop created
@@ -6,14 +15,15 @@
 - functions.py
     - class system implemented
 - README.md enhancements
-# v0.1.1
+- HELP.md enhancements
+# v0.1.1 **"Python files and HELP.md created"**
 > - main.py created
 > - functions.py created
 - HELP.md created
 - README.md enhancements
 - exception handling
-# v0.1.0
+# v0.1.0 **"Git integration and CHANGELOG.md"**
 > - CHANGELOG.md created
 - Git integration
-# v0.0.0
+# v0.0.0 **"Initial commit"**
 Project created

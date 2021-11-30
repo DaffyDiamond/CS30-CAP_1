@@ -9,14 +9,15 @@ try:
 except ModuleNotFoundError:
     print("*IMPORT ERROR*")
 
-
 while True:
-    user_input = input("> ")
-    # if user_input in options:
-        # try:
-            # if user_input == "?":
-                # inputs.help
-        # except some error:
-            # print(f"*INVALID INPUT* \n{inputs.help}")
-    # else:
-        # print(f"*INVALID INPUT* \n{inputs.help}")
+    user_input = input("\n> ")
+    if user_input in options:
+        try:
+            if user_input == "?":
+                inputs.print_help()
+        except KeyError:
+            print("*INVALID INPUT*")
+            break
+    else:
+        print("*INVALID INPUT*")
+        break
