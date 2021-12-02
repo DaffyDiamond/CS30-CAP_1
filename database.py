@@ -8,3 +8,7 @@ options = {
     "+": "Add Task",
     "-": "Delete Task"
 }
+
+history = [
+    
+]

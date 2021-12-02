@@ -1,4 +1,13 @@
-# v0.1.4 **"Formatting and solving problems"**
+
+# v0.1.4 **"Class system changes and new functions"**
+- main.py
+    - implemented proper input and output
+    - prints help option
+    - prints add option
+- functions.py
+    - resolved class system issues
+    - user is able to add items
+    - user is able to pick priority level
 # v0.1.3 **"Implementing user input loop"**
 - main.py
     - input loop established
