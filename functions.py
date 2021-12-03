@@ -59,7 +59,7 @@ CS30-CAP_1
 
     def add(self):
         """User adds an item to their list (+)"""
-        item = input(": ")
+        item = input("\n: ")
         priorities = ["-", "#"]
         user_priority = input("PRIORITY\n'-' or '#'\n> ")
         if user_priority not in priorities:

@@ -1,5 +1,9 @@
 ## Input Options for Bamboo Taskview
 #
+### [Quit]
+
+    > Q
+Quits back to main menu
 ### [Help]
 
     > ?

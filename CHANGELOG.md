@@ -1,4 +1,11 @@
 
+# v0.1.6 **Main menu progress and solving problems**
+- miscellaneous changes to all files
+- menu.py first option is functional
+- main.py
+    - while loop inside a function
+    - quit to main menu option
+    - removed redundant code
 # v0.1.5 **"New main menu"**
 > - menu.py created
 - functions.py added clear console function
