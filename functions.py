@@ -6,8 +6,16 @@ Description: Functions file
 try:
     from time import sleep
     from database import options
+    from os import system, name
 except ModuleNotFoundError:
     print("*IMPORT ERROR*")
+
+
+def clear():
+    if name == "nt":
+        system("cls")
+    else:
+        system("clear")
 
 
 def slow_text(variable, speed):

@@ -1,4 +1,8 @@
 
+# v0.1.5 **"New main menu"**
+> - menu.py created
+- functions.py added clear console function
+- menu.py foundation of program's main menu
 # v0.1.4 **"Class system changes and new functions"**
 - main.py
     - implemented proper input and output

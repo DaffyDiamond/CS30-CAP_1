@@ -1,6 +1,6 @@
 """
 Name: Ashish Panda
-Description: Main file
+Description: Input loop
 """
 
 try:
