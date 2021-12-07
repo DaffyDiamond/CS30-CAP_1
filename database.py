@@ -3,13 +3,9 @@ Name: Ashish Panda
 Description: Database file
 """
 
-options = {
+OPTIONS = {
     "q": "Quit",
     "?": "Help",
     "+": "Add Task",
     "-": "Delete Task"
 }
-
-history = [
-
-]

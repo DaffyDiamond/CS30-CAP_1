@@ -3,15 +3,6 @@ Name: Ashish Panda
 Description: Main menu
 """
 
-# have this be the main directory (starting point)
-# then be able to have options:
-# - Input something
-# - view tasks
-#   - when in taskview, make it go to another menu which lists 
-#     users own lists, automatically adding them there
-# - calendar
-# etc
-
 try:
     import sys
     from functions import slow_text, clear

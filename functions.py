@@ -5,13 +5,14 @@ Description: Functions file
 
 try:
     from time import sleep
-    from database import options
+    from database import OPTIONS
     from os import system, name
 except ModuleNotFoundError:
     print("*IMPORT ERROR*")
 
 
 def clear():
+    """Clears the console"""
     if name == "nt":
         system("cls")
     else:
@@ -25,17 +26,8 @@ def slow_text(variable, speed):
         print(characters, end="", flush=True)
 
 
-def print_list(variable):
-    for x in variable:
-        print(x)
-
-
-class inputs:
+class Inputs:
     """Stores all the input options"""
-
-    def __init__(self):
-        None
-
     def print_credits(self):
         """Displays the credits"""
         credits_heading = "\nC R E D I T S\n"
@@ -53,9 +45,9 @@ CS30-CAP_1
         """Displays all possible user inputs"""
         help_heading = "\nH E L P\n\n"
         slow_text(help_heading, 0.06)
-        for option in options:
+        for option in OPTIONS:
             for description in option:
-                print(f"{description} {options[option]}")
+                print(f"{description} {OPTIONS[option]}")
 
     def add(self):
         """User adds an item to their list (+)"""
@@ -67,7 +59,5 @@ CS30-CAP_1
         else:
             print(f"{user_priority} {item}")
 
-    def quick_add(self):
-        """User adds an item to their list (++)"""
-        None
-
+#    def quick_add(self):
+#        """User adds an item to their list (++)"""

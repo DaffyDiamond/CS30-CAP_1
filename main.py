@@ -4,24 +4,25 @@ Description: Input loop
 """
 
 try:
-    from functions import inputs, clear
-    from database import options, history
+    from functions import Inputs, clear
+    from database import OPTIONS
 except ModuleNotFoundError:
     print("*IMPORT ERROR*")
 
 
 def input_loop():
+    """Main loop that user can interact with"""
     while True:
         user_input = input("\n> ")
-        if user_input in options:
+        if user_input in OPTIONS:
             if user_input.lower() == "q":
                 clear()
                 break
             elif user_input == "?":
                 clear()
-                inputs().print_help()
+                Inputs().print_help()
             elif user_input == "+":
                 clear()
-                inputs().add()
+                Inputs().add()
         else:
             print("*INVALID INPUT*")

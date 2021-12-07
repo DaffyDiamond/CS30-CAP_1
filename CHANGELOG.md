@@ -1,4 +1,9 @@
-
+# v0.1.7 **"Formatting and following PEP8"**
+- all files affected
+- cleaning up useless code
+- following PEP8 guidelines
+    - whitespace, docstrings, naming conventions, etc
+- changing class system structure
 # v0.1.6 **Main menu progress and solving problems**
 - miscellaneous changes to all files
 - menu.py first option is functional
