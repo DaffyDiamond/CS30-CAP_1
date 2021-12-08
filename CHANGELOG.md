@@ -1,3 +1,9 @@
+# v0.1.8 **"External file handling and hotfixing"**
+> - list.txt created
+- items successfully save to external file
+- functions.py 
+    - fixing priority for better exception handling
+    - adding external file function to read and write
 # v0.1.7 **"Formatting and following PEP8"**
 - all files affected
 - cleaning up useless code

@@ -26,6 +26,13 @@ def slow_text(variable, speed):
         print(characters, end="", flush=True)
 
 
+def external(priority, item):
+    with open("list.txt", "a") as f:
+        f.write(f"\n{priority} {item}")
+    f = open("list.txt", "r")
+    print(f.read())
+
+
 class Inputs:
     """Stores all the input options"""
     def print_credits(self):
@@ -49,15 +56,20 @@ CS30-CAP_1
             for description in option:
                 print(f"{description} {OPTIONS[option]}")
 
-    def add(self):
-        """User adds an item to their list (+)"""
-        item = input("\n: ")
+    def add_priority(self):
         priorities = ["-", "#"]
         user_priority = input("PRIORITY\n'-' or '#'\n> ")
         if user_priority not in priorities:
             print("*INVALID INPUT*")
+            self.add_priority()
         else:
-            print(f"{user_priority} {item}")
+            external(user_priority, item)
+
+    def add(self):
+        """User adds an item to their list (+)"""
+        global item
+        item = input("\n: ")
+        self.add_priority()
 
 #    def quick_add(self):
 #        """User adds an item to their list (++)"""
