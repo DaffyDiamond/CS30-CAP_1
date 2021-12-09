@@ -4,10 +4,10 @@ Description: Input loop
 """
 
 try:
-    from functions import Inputs, clear
+    from functions import Inputs, Functions
     from database import OPTIONS
-except ModuleNotFoundError:
-    print("*IMPORT ERROR*")
+except ImportError:
+    input("*IMPORT ERROR*\n")
 
 
 def input_loop():
@@ -16,13 +16,15 @@ def input_loop():
         user_input = input("\n> ")
         if user_input in OPTIONS:
             if user_input.lower() == "q":
-                clear()
+                Functions().clear()
                 break
             elif user_input == "?":
-                clear()
+                Functions().clear()
                 Inputs().print_help()
             elif user_input == "+":
-                clear()
+                Functions().clear()
                 Inputs().add()
+            elif user_input == "/":
+                Inputs().access_list()
         else:
             print("*INVALID INPUT*")

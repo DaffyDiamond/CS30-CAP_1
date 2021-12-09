@@ -7,5 +7,6 @@ OPTIONS = {
     "q": "Quit",
     "?": "Help",
     "+": "Add Task",
-    "-": "Delete Task"
+    "-": "Delete Task",
+    "/": "Access List"
 }

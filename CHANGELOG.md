@@ -1,3 +1,13 @@
+# v0.1.9 **"Adding lists and miscellaneous changes"**
+- any number of text files can be created by user
+- fixed import error exception handling
+- functions.py 
+    - edited external function to create new .txt files
+    - added access_list function to choose or create lists
+    - added Functions class
+- main.py and database.py
+    - added functionality for creating and accessing lists
+
 # v0.1.8 **"External file handling and hotfixing"**
 > - list.txt created
 - items successfully save to external file
