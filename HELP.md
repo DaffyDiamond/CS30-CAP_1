@@ -1,5 +1,4 @@
 ## Input Options for Bamboo Taskview
-#
 ### [Quit]
 
     > Q
@@ -17,3 +16,7 @@ Brings up a menu to add your task and add extra details
 
     > ++
 Shortcut to add your task without any other details
+### [Access List]
+
+    > /
+Ability to pick an existing list or create a new one
