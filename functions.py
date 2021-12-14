@@ -20,6 +20,14 @@ class Functions:
             sleep(speed)
             print(characters, end="", flush=True)
 
+    def opened_list(self, option):
+        if option == "//":
+            with open("CS30-CAP_1/RESTRICTED_FILE.txt", "r") as f:
+                print(f"\n// {f.read()}")
+        else:
+            with open("CS30-CAP_1/RESTRICTED_FILE.txt", "r") as f:
+                return f.read()
+
     def external(self, the_list, the_priority, the_item):
         """External file handling for list items"""
         with open(f"{the_list}.txt", "a") as f:
@@ -67,7 +75,7 @@ CS30-CAP_1
             print("*INVALID INPUT*")
             self.add_priority()
         else:
-            Functions().external(user_list, user_priority, item)
+            Functions().external(Functions().opened_list(""), user_priority, item)
 
     def add(self):
         """User adds an item to their list (+)"""
@@ -78,6 +86,8 @@ CS30-CAP_1
     def access_list(self):
         global user_list
         user_list = input("\n>> ")
+        with open("CS30-CAP_1/RESTRICTED_FILE.txt", "w") as f:
+            f.write(user_list)
 
 #    def quick_add(self):
 #        """User adds an item to their list (++)"""

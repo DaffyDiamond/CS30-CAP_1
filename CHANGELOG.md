@@ -1,3 +1,9 @@
+# v0.1.10 **"Accessing list enhancements and fixes"**
+> - RESTRICTED_FILE.txt
+- main.py current list name is printed to user
+- functions.py
+    - new function opened_list to print or read current list name
+    - feature to save current list so it saves after program is closed
 # v0.1.9 **"Adding lists and miscellaneous changes"**
 - any number of text files can be created by user
 - fixed import error exception handling
@@ -7,7 +13,6 @@
     - added Functions class
 - main.py and database.py
     - added functionality for creating and accessing lists
-
 # v0.1.8 **"External file handling and hotfixing"**
 > - list.txt created
 - items successfully save to external file

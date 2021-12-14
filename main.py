@@ -13,6 +13,7 @@ except ImportError:
 def input_loop():
     """Main loop that user can interact with"""
     while True:
+        Functions().opened_list("//")
         user_input = input("\n> ")
         if user_input in OPTIONS:
             if user_input.lower() == "q":
