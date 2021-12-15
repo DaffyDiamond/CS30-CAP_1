@@ -24,7 +24,10 @@ def input_loop():
                 Inputs().print_help()
             elif user_input == "+":
                 Functions().clear()
-                Inputs().add()
+                Inputs().add("")
+            elif user_input == "++":
+                Functions().clear()
+                Inputs().add("quick")
             elif user_input == "/":
                 Inputs().access_list()
         else:

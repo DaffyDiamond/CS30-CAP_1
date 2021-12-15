@@ -10,15 +10,16 @@ try:
 except ImportError:
     input("*IMPORT ERROR*\n")
 
-Functions().clear()
 
 while True:
+    Functions().clear()
     menu = input("""
 
 [1] INPUT
 [2] TASKVIEW
 [3] CALENDAR
 
+[C] CREDITS
 [Q] QUIT
 
 > """)
@@ -30,6 +31,10 @@ while True:
         break
     elif menu == "3":
         break
+    elif menu.lower() == "c":
+        Functions().clear()
+        Functions().print_credits()
+        input("[PRESS ANY KEY TO GO BACK]")
     elif menu.lower() == "q":
         Functions().clear()
         sys.exit()

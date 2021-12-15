@@ -14,6 +14,21 @@ except ImportError:
 class Functions:
     """Stores general functions"""
 
+    def print_credits(self):
+        """Displays the credits"""
+        credits_heading = "\nC R E D I T S\n"
+        credits_description = """
+Bamboo Taskview
+by Ashish Panda
+
+CS30-CAP_1
+2021-2022
+
+Thank you for using my program :)
+        """
+        Functions().slow_text(credits_heading, 0.06)
+        print(credits_description)
+
     def slow_text(self, variable, speed):
         """Creates slow text"""
         for characters in variable:
@@ -46,19 +61,6 @@ class Functions:
 class Inputs:
     """Stores all the input options"""
 
-    def print_credits(self):
-        """Displays the credits"""
-        credits_heading = "\nC R E D I T S\n"
-        credits_description = """
-Bamboo Taskview
-by Ashish Panda
-
-CS30-CAP_1
-2021-2022
-        """
-        Functions().slow_text(credits_heading, 0.06)
-        print(credits_description)
-
     def print_help(self):
         """Displays all possible user inputs"""
         help_heading = "\nH E L P\n\n"
@@ -77,11 +79,17 @@ CS30-CAP_1
         else:
             Functions().external(Functions().opened_list(""), user_priority, item)
 
-    def add(self):
+    def add(self, add_type):
         """User adds an item to their list (+)"""
         global item
         item = input("\n: ")
-        self.add_priority()
+        if item == "<":
+            return
+        else:
+            if add_type == "quick":
+                Functions().external(Functions().opened_list(""), "-", item)
+            else:
+                self.add_priority()
 
     def access_list(self):
         global user_list
@@ -89,5 +97,4 @@ CS30-CAP_1
         with open("CS30-CAP_1/RESTRICTED_FILE.txt", "w") as f:
             f.write(user_list)
 
-#    def quick_add(self):
-#        """User adds an item to their list (++)"""
+#   def delete_item(self):

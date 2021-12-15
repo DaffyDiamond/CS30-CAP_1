@@ -1,4 +1,15 @@
-# v0.1.10 **"Accessing list enhancements and fixes"**
+# v0.2.1 **"Quick adding and back button"**
+- main.py
+    - quick add as option
+    - changes to add option
+- database.py 
+    - added quick add
+    - added back button
+- menu.py added view credits option
+- functions.py
+    - changed add function to have quick add functionality
+    - added back button for convenience
+# v0.2.0 **"Accessing list enhancements and fixes"**
 > - RESTRICTED_FILE.txt
 - main.py current list name is printed to user
 - functions.py
