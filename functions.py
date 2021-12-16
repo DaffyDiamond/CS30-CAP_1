@@ -66,8 +66,7 @@ class Inputs:
         help_heading = "\nH E L P\n\n"
         Functions().slow_text(help_heading, 0.06)
         for option in OPTIONS:
-            for description in option:
-                print(f"{description} {OPTIONS[option]}")
+            print(option, OPTIONS[option])
 
     def add_priority(self):
         """User has option for priority level"""
@@ -83,7 +82,7 @@ class Inputs:
         """User adds an item to their list (+)"""
         global item
         item = input("\n: ")
-        if item == "<":
+        if item.lower() == "q":
             return
         else:
             if add_type == "quick":

@@ -1,3 +1,8 @@
+# v0.2.2 **"Hotfix HELP and back button enhancements"**
+- changed quick add key
+- functions.py
+    - fixed dictionary printing
+    - changed back button to quit for consistency
 # v0.2.1 **"Quick adding and back button"**
 - main.py
     - quick add as option

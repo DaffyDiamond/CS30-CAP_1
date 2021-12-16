@@ -25,7 +25,7 @@ def input_loop():
             elif user_input == "+":
                 Functions().clear()
                 Inputs().add("")
-            elif user_input == "++":
+            elif user_input == "*":
                 Functions().clear()
                 Inputs().add("quick")
             elif user_input == "/":
