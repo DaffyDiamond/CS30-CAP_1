@@ -13,7 +13,7 @@ except ImportError:
 def input_loop():
     """Main loop that user can interact with"""
     while True:
-        Functions().opened_list("//")
+        print(f"\n// {Functions().opened_list()}")
         user_input = input("\n> ")
         if user_input in OPTIONS:
             if user_input.lower() == "q":
@@ -30,5 +30,7 @@ def input_loop():
                 Inputs().add("quick")
             elif user_input == "/":
                 Inputs().access_list()
+            elif user_input == "-":
+                Inputs().delete_item()
         else:
             print("*INVALID INPUT*")

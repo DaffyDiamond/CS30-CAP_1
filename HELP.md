@@ -20,3 +20,7 @@ Shortcut to add your task without any other details
 
     > /
 Ability to pick an existing list or create a new one
+### [Delete Task]
+
+    > -
+Menu to delete an existing task

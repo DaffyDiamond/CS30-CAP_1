@@ -1,3 +1,8 @@
+# v0.2.3 **"Delete item option"**
+- Keeping up with docstrings
+- HELP.md adding delete option
+- functions.py
+    - efficiency changes to opened_list function
 # v0.2.2 **"Hotfix HELP and back button enhancements"**
 - changed quick add key
 - functions.py

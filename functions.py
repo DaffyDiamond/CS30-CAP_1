@@ -35,13 +35,10 @@ Thank you for using my program :)
             sleep(speed)
             print(characters, end="", flush=True)
 
-    def opened_list(self, option):
-        if option == "//":
-            with open("CS30-CAP_1/RESTRICTED_FILE.txt", "r") as f:
-                print(f"\n// {f.read()}")
-        else:
-            with open("CS30-CAP_1/RESTRICTED_FILE.txt", "r") as f:
-                return f.read()
+    def opened_list(self):
+        """Check what the current list is"""
+        with open("CS30-CAP_1/RESTRICTED_FILE.txt", "r") as f:
+            return f.read()
 
     def external(self, the_list, the_priority, the_item):
         """External file handling for list items"""
@@ -70,13 +67,13 @@ class Inputs:
 
     def add_priority(self):
         """User has option for priority level"""
-        priorities = ["-", "#"]
+        priorities = ["-", "#", "CHANGE TO ADD BOLDING!"]
         user_priority = input("PRIORITY\n'-' or '#'\n> ")
         if user_priority not in priorities:
             print("*INVALID INPUT*")
             self.add_priority()
         else:
-            Functions().external(Functions().opened_list(""), user_priority, item)
+            Functions().external(Functions().opened_list(), user_priority, item)
 
     def add(self, add_type):
         """User adds an item to their list (+)"""
@@ -86,14 +83,26 @@ class Inputs:
             return
         else:
             if add_type == "quick":
-                Functions().external(Functions().opened_list(""), "-", item)
+                Functions().external(Functions().opened_list(), "-", item)
             else:
                 self.add_priority()
 
     def access_list(self):
+        """Change current list opened"""
         global user_list
         user_list = input("\n>> ")
         with open("CS30-CAP_1/RESTRICTED_FILE.txt", "w") as f:
             f.write(user_list)
 
-#   def delete_item(self):
+    def delete_item(self):
+        """Deleting an item"""
+        the_phrase = input(";")
+        with open(f"{Functions().opened_list()}.txt", "r+") as f:
+            lines = f.readlines()
+            f.seek(0)
+            for line in lines:
+                if the_phrase not in line:
+                    f.write(line)
+            f.truncate()
+
+#   def modify_item(self):
