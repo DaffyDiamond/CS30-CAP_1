@@ -1,3 +1,5 @@
+# v0.2.4 **"Enhancements to deleting"**
+- functions.py shows list before and after deletion
 # v0.2.3 **"Delete item option"**
 - Keeping up with docstrings
 - HELP.md adding delete option

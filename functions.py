@@ -96,7 +96,9 @@ class Inputs:
 
     def delete_item(self):
         """Deleting an item"""
-        the_phrase = input(";")
+        f = open(f"{Functions().opened_list()}.txt", "r")
+        print(f.read())
+        the_phrase = input("\n; ")
         with open(f"{Functions().opened_list()}.txt", "r+") as f:
             lines = f.readlines()
             f.seek(0)
@@ -104,5 +106,8 @@ class Inputs:
                 if the_phrase not in line:
                     f.write(line)
             f.truncate()
+        f = open(f"{Functions().opened_list()}.txt", "r")
+        print(f.read())
 
 #   def modify_item(self):
+#   due dates
