@@ -44,8 +44,15 @@ Thank you for using my program :)
         """External file handling for list items"""
         with open(f"{the_list}.txt", "a") as f:
             f.write(f"\n{the_priority} {the_item}")
-        f = open(f"{the_list}.txt", "r")
-        print(f.read())
+        with open(f"{the_list}.txt", "r+") as f:
+            lines = f.readlines()
+            f.seek(0)
+            for line in lines:
+                if not len(line) < 2: # FIX WHEN 1ST LINE IS BLANK
+                    f.write(line)
+            f.truncate()
+        with open(f"{the_list}.txt", "r+") as f:
+            print(f.read())
 
     def clear(self):
         """Clears the console"""
@@ -95,19 +102,44 @@ class Inputs:
             f.write(user_list)
 
     def delete_item(self):
-        """Deleting an item"""
-        f = open(f"{Functions().opened_list()}.txt", "r")
-        print(f.read())
-        the_phrase = input("\n; ")
+        """Deleting an item"""        
+        with open(f"{Functions().opened_list()}.txt", "r+") as f:
+            line_offset = []
+            offset = 0
+            lines = f.readlines()
+            f.seek(0)
+            counter = 0
+            for line in lines:
+                line_offset.append(offset)
+                offset += len(line)+1
+            for x in line_offset:
+                f.seek(x)
+                counter += 1
+                f.write(str(counter))
+        with open(f"{Functions().opened_list()}.txt", "r+") as f:
+            print(f.read())
+        line_number = input("\n# ")
         with open(f"{Functions().opened_list()}.txt", "r+") as f:
             lines = f.readlines()
             f.seek(0)
             for line in lines:
-                if the_phrase not in line:
+                if not line.startswith(f"{line_number}"):
                     f.write(line)
             f.truncate()
-        f = open(f"{Functions().opened_list()}.txt", "r")
-        print(f.read())
+        with open(f"{Functions().opened_list()}.txt", "r+") as f:
+            line_offset = []
+            offset = 0
+            lines = f.readlines()
+            f.seek(0)
+            for line in lines:
+                line_offset.append(offset)
+                offset += len(line)+1
+            for x in line_offset:
+                f.seek(x)
+                f.write("-")
+        with open(f"{Functions().opened_list()}.txt", "r+") as f:
+            print(f.read())
+
 
 #   def modify_item(self):
 #   due dates

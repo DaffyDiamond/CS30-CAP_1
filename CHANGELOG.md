@@ -1,3 +1,11 @@
+# v0.2.5 **"Reworking deletion and fixing file handling"**
+- functions.py
+    - external function changed to fix blank spaces
+    - complete rework of delete_item function
+        - numbers list item to show to user
+        - user selects which task (line number) to delete
+        - task selected is deleted
+        - list is changed back to normal
 # v0.2.4 **"Enhancements to deleting"**
 - functions.py shows list before and after deletion
 # v0.2.3 **"Delete item option"**
