@@ -40,15 +40,15 @@ Thank you for using my program :)
         with open("CS30-CAP_1/RESTRICTED_FILE.txt", "r") as f:
             return f.read()
 
-    def external(self, the_list, the_priority, the_item):
+    def external(self, the_list, the_item):
         """External file handling for list items"""
         with open(f"{the_list}.txt", "a") as f:
-            f.write(f"\n{the_priority} {the_item}")
+            f.write(f"\n{the_item}")
         with open(f"{the_list}.txt", "r+") as f:
             lines = f.readlines()
             f.seek(0)
             for line in lines:
-                if not len(line) < 2: # FIX WHEN 1ST LINE IS BLANK
+                if not len(line) < 2:
                     f.write(line)
             f.truncate()
         with open(f"{the_list}.txt", "r+") as f:
@@ -74,23 +74,39 @@ class Inputs:
 
     def add_priority(self):
         """User has option for priority level"""
-        priorities = ["-", "#", "CHANGE TO ADD BOLDING!"]
-        user_priority = input("PRIORITY\n'-' or '#'\n> ")
+        priorities = ["yellow", "bold", "underline"]
+        for f in priorities:
+            print(f)
+        yellow = "\033[93m"
+        bold = "\033[1m"
+        underline = "\033[4m"
+        end_font = "\033[0m"
+        user_priority = input("\nPRIORITY\n> ")
         if user_priority not in priorities:
             print("*INVALID INPUT*")
             self.add_priority()
         else:
-            Functions().external(Functions().opened_list(), user_priority, item)
+            if user_priority.lower() == "yellow":
+                p_item = yellow + item + end_font
+            elif user_priority.lower() == "bold":
+                p_item = bold + item + end_font
+            elif user_priority.lower() == "underline":
+                p_item = underline + item + end_font
+            Functions().external(
+                Functions().opened_list(), 
+                p_item
+                    )
 
     def add(self, add_type):
         """User adds an item to their list (+)"""
         global item
         item = input("\n: ")
+        item = "- " + item
         if item.lower() == "q":
             return
         else:
             if add_type == "quick":
-                Functions().external(Functions().opened_list(), "-", item)
+                Functions().external(Functions().opened_list(), item)
             else:
                 self.add_priority()
 
@@ -102,7 +118,7 @@ class Inputs:
             f.write(user_list)
 
     def delete_item(self):
-        """Deleting an item"""        
+        """Deleting an item"""
         with open(f"{Functions().opened_list()}.txt", "r+") as f:
             line_offset = []
             offset = 0

@@ -1,3 +1,10 @@
+
+# v0.2.6 **"Reworking priority management"**
+- functions.py
+    - changed priority function
+        - now changes task font for more clarity
+    - miscellaneous changes to tasks
+    - pep8 formatting updates
 # v0.2.5 **"Reworking deletion and fixing file handling"**
 - functions.py
     - external function changed to fix blank spaces
