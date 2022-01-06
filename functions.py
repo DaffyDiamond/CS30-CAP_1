@@ -40,7 +40,7 @@ Thank you for using my program :)
         with open("CS30-CAP_1/RESTRICTED_FILE.txt", "r") as f:
             return f.read()
 
-    def external(self, the_list, the_item):
+    def external(self, the_list, the_item, read):
         """External file handling for list items"""
         with open(f"{the_list}.txt", "a") as f:
             f.write(f"\n{the_item}")
@@ -51,8 +51,9 @@ Thank you for using my program :)
                 if not len(line) < 2:
                     f.write(line)
             f.truncate()
-        with open(f"{the_list}.txt", "r+") as f:
-            print(f.read())
+        if read == "r":
+            with open(f"{the_list}.txt", "r+") as f:
+                print(f.read())
 
     def clear(self):
         """Clears the console"""
@@ -74,27 +75,25 @@ class Inputs:
 
     def add_priority(self):
         """User has option for priority level"""
-        priorities = ["yellow", "bold", "underline"]
+        priorities = ["bold", "clear"]
         for f in priorities:
             print(f)
-        yellow = "\033[93m"
         bold = "\033[1m"
-        underline = "\033[4m"
         end_font = "\033[0m"
-        user_priority = input("\nPRIORITY\n> ")
+        user_priority = input("\n! ")
         if user_priority not in priorities:
+            if user_priority.lower() == "q":
+                return
             print("*INVALID INPUT*")
             self.add_priority()
         else:
-            if user_priority.lower() == "yellow":
-                p_item = yellow + item + end_font
-            elif user_priority.lower() == "bold":
+            if user_priority.lower() == "bold":
                 p_item = bold + item + end_font
-            elif user_priority.lower() == "underline":
-                p_item = underline + item + end_font
+            elif user_priority.lower() == "clear":
+                p_item = end_font + item + end_font
             Functions().external(
                 Functions().opened_list(), 
-                p_item
+                p_item, "r"
                     )
 
     def add(self, add_type):
@@ -105,8 +104,13 @@ class Inputs:
         if item.lower() == "q":
             return
         else:
+            Functions().external(
+                Functions().opened_list()+"COPY",
+                item, "")
             if add_type == "quick":
-                Functions().external(Functions().opened_list(), item)
+                Functions().external(
+                    Functions().opened_list(),
+                    item, "r")
             else:
                 self.add_priority()
 
@@ -117,9 +121,9 @@ class Inputs:
         with open("CS30-CAP_1/RESTRICTED_FILE.txt", "w") as f:
             f.write(user_list)
 
-    def delete_item(self):
-        """Deleting an item"""
-        with open(f"{Functions().opened_list()}.txt", "r+") as f:
+    def modify_item(self, how_modify):
+        """Modifying an item"""
+        with open(f"{Functions().opened_list()}COPY.txt", "r+") as f:
             line_offset = []
             offset = 0
             lines = f.readlines()
@@ -132,29 +136,77 @@ class Inputs:
                 f.seek(x)
                 counter += 1
                 f.write(str(counter))
-        with open(f"{Functions().opened_list()}.txt", "r+") as f:
+        with open(f"{Functions().opened_list()}COPY.txt", "r+") as f:
             print(f.read())
         line_number = input("\n# ")
-        with open(f"{Functions().opened_list()}.txt", "r+") as f:
-            lines = f.readlines()
-            f.seek(0)
-            for line in lines:
-                if not line.startswith(f"{line_number}"):
-                    f.write(line)
-            f.truncate()
-        with open(f"{Functions().opened_list()}.txt", "r+") as f:
-            line_offset = []
-            offset = 0
-            lines = f.readlines()
-            f.seek(0)
-            for line in lines:
-                line_offset.append(offset)
-                offset += len(line)+1
-            for x in line_offset:
-                f.seek(x)
-                f.write("-")
-        with open(f"{Functions().opened_list()}.txt", "r+") as f:
-            print(f.read())
+
+        if line_number.lower() == "q":
+            return
+
+        elif how_modify == "delete":
+            with open(f"{Functions().opened_list()}COPY.txt", "r+") as f:
+                lines = f.readlines()
+                f.seek(0)
+                for line in lines:
+                    if not line.startswith(f"{line_number}"):
+                        f.write(line)
+                f.truncate()
+            with open(f"{Functions().opened_list()}.txt", "r+") as f:
+                line_offset = []
+                offset = 0
+                lines = f.readlines()
+                f.seek(0)
+                counter = 0
+                for line in lines:
+                    line_offset.append(offset)
+                    offset += len(line)+1
+                for x in line_offset:
+                    f.seek(x)
+                    counter += 1
+                    f.write(str(counter))
+            with open(f"{Functions().opened_list()}.txt", "r+") as f:
+                lines = f.readlines()
+                f.seek(0)
+                for line in lines:
+                    if not line.startswith(f"{line_number}"):
+                        f.write(line)
+                f.truncate()
+            with open(f"{Functions().opened_list()}COPY.txt", "r+") as f:
+                line_offset = []
+                offset = 0
+                lines = f.readlines()
+                f.seek(0)
+                for line in lines:
+                    line_offset.append(offset)
+                    offset += len(line)+1
+                for x in line_offset:
+                    f.seek(x)
+                    f.write("-")
+            with open(f"{Functions().opened_list()}.txt", "r+") as f:
+                line_offset = []
+                offset = 0
+                lines = f.readlines()
+                f.seek(0)
+                for line in lines:
+                    line_offset.append(offset)
+                    offset += len(line)+1
+                for x in line_offset:
+                    f.seek(x)
+                    f.write("-")
+            with open(f"{Functions().opened_list()}.txt", "r+") as f:    
+                lines = f.readlines()
+                f.seek(0)
+                for line in lines:
+                    if not line.startswith("-["):
+                        f.write(line)
+                    else:
+                        line = line[:0] + "\033" + line[1:]
+                        f.write(line)
+            with open(f"{Functions().opened_list()}.txt", "r+") as f:
+                print(f.read())
+        
+        elif how_modify == "modify":
+            print("soonTM")
 
 
 #   def modify_item(self):

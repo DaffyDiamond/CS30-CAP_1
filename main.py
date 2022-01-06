@@ -31,6 +31,6 @@ def input_loop():
             elif user_input == "/":
                 Inputs().access_list()
             elif user_input == "-":
-                Inputs().delete_item()
+                Inputs().modify_item("delete")
         else:
             print("*INVALID INPUT*")

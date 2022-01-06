@@ -1,4 +1,11 @@
 
+# v0.2.7 **"Hotfix for deleting items with bolded tasks"**
+- functions.py
+    - added ability to clear priority level
+    - added ability for the user to quit from priorities
+    - fixed bolded text breaking when deleting items
+        - added list copy
+        - re-checking text file to fix the bolded task
 # v0.2.6 **"Reworking priority management"**
 - functions.py
     - changed priority function
