@@ -10,13 +10,12 @@ try:
 except ImportError:
     input("*IMPORT ERROR*\n")
 
+Functions().clear()
 
 while True:
-    Functions().clear()
     menu = input("""
 [1] INPUT
 [2] TASKVIEW
-[3] CALENDAR
 
 [C] CREDITS
 [Q] QUIT
@@ -32,8 +31,7 @@ while True:
         with open(f"{Functions().opened_list()}.txt", "r") as f:
             print("\n" + f.read())
             input("\n\n[PRESS ANY KEY TO GO BACK]")
-    elif menu == "3":
-        break
+            Functions().clear()
     elif menu.lower() == "c":
         Functions().clear()
         Functions().print_credits()
@@ -43,6 +41,4 @@ while True:
         sys.exit()
     else:
         Functions().clear()
-        print("\n")
-        print_invalid = ("*INVALID INPUT*")
-        Functions().slow_text(print_invalid, 0.03)
+        print("\n*INVALID INPUT*")

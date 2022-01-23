@@ -1,3 +1,12 @@
+# v0.2.9 **"Efficiency updates and final touches"**
+- functions.py
+    - creating new function for deleting items
+    - reducing duplicate code
+    - fixed trailing whitespace
+    - added comments in code for readability
+- menu.py removed leftover redundancy
+- HELP.md updated to reflect current code
+- README.md added more information for users
 # v0.2.8 **"Taskview and quality of life changes"**
 - functions.py
     - small changes in formatting

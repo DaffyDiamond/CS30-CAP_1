@@ -103,9 +103,9 @@ class Inputs:
         else:
             Functions().clear()
             print("\n*INVALID INPUT*")
-            self.add_priority()
+            self.add_priority()  # recursion
         Functions().external(
-            Functions().opened_list(), 
+            Functions().opened_list(),
             item, "r"
                 )
 
@@ -118,77 +118,63 @@ class Inputs:
 
     def delete_item(self):
         """Deleting an item"""
-        with open(f"{Functions().opened_list()}COPY.txt", "r+") as f:
-            line_offset = []
-            offset = 0
-            lines = f.readlines()
-            f.seek(0)
-            counter = 0
-            for line in lines:
-                line_offset.append(offset)
-                offset += len(line)+1
-            for x in line_offset:
-                f.seek(x)
-                counter += 1
-                f.write(str(counter))
+
+        def list_functions(the_function):
+            """Efficiently used when deleting items"""
+            for x in range(2):
+                if x == 0:
+                    the_list = f"{Functions().opened_list()}COPY"
+                else:
+                    the_list = Functions().opened_list()
+                if the_function == "number":
+                    with open(f"{the_list}.txt", "r+") as f:
+                        line_offset = []
+                        offset = 0
+                        lines = f.readlines()
+                        f.seek(0)
+                        counter = 0
+                        for line in lines:
+                            line_offset.append(offset)
+                            offset += len(line)+1
+                        for x in line_offset:
+                            f.seek(x)
+                            counter += 1
+                            f.write(str(counter))
+                elif the_function == "delete":
+                    with open(f"{the_list}.txt", "r+") as f:
+                        lines = f.readlines()
+                        f.seek(0)
+                        for line in lines:
+                            if not line.startswith(f"{line_number}"):
+                                f.write(line)
+                        f.truncate()
+                elif the_function == "replace":
+                    with open(f"{the_list}.txt", "r+") as f:
+                        line_offset = []
+                        offset = 0
+                        lines = f.readlines()
+                        f.seek(0)
+                        for line in lines:
+                            line_offset.append(offset)
+                            offset += len(line)+1
+                        for x in line_offset:
+                            f.seek(x)
+                            f.write("-")
+
+        # List is numbered by line
+        list_functions("number")
         with open(f"{Functions().opened_list()}COPY.txt", "r+") as f:
             print("\n" + f.read())
-
+        # User selects line to delete
         line_number = input("\n# ")
-
+        # User can go back instead of proceeding
         if line_number.lower() == "q":
             return
-
-        with open(f"{Functions().opened_list()}COPY.txt", "r+") as f:
-            lines = f.readlines()
-            f.seek(0)
-            for line in lines:
-                if not line.startswith(f"{line_number}"):
-                    f.write(line)
-            f.truncate()
+        # Line selected is deleted
+        list_functions("delete")
+        list_functions("replace")
+        # Handles bolded tasks
         with open(f"{Functions().opened_list()}.txt", "r+") as f:
-            line_offset = []
-            offset = 0
-            lines = f.readlines()
-            f.seek(0)
-            counter = 0
-            for line in lines:
-                line_offset.append(offset)
-                offset += len(line)+1
-            for x in line_offset:
-                f.seek(x)
-                counter += 1
-                f.write(str(counter))
-        with open(f"{Functions().opened_list()}.txt", "r+") as f:
-            lines = f.readlines()
-            f.seek(0)
-            for line in lines:
-                if not line.startswith(f"{line_number}"):
-                    f.write(line)
-            f.truncate()
-        with open(f"{Functions().opened_list()}COPY.txt", "r+") as f:
-            line_offset = []
-            offset = 0
-            lines = f.readlines()
-            f.seek(0)
-            for line in lines:
-                line_offset.append(offset)
-                offset += len(line)+1
-            for x in line_offset:
-                f.seek(x)
-                f.write("-")
-        with open(f"{Functions().opened_list()}.txt", "r+") as f:
-            line_offset = []
-            offset = 0
-            lines = f.readlines()
-            f.seek(0)
-            for line in lines:
-                line_offset.append(offset)
-                offset += len(line)+1
-            for x in line_offset:
-                f.seek(x)
-                f.write("-")
-        with open(f"{Functions().opened_list()}.txt", "r+") as f:    
             lines = f.readlines()
             f.seek(0)
             for line in lines:

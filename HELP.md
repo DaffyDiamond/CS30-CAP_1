@@ -1,12 +1,16 @@
-## Input Options for Bamboo Taskview
+#
+## Start Program:
+### Run menu.py
+#
+## Input Options:
 ### [Quit]
 
     > Q
-Quits back to main menu
+Shortcut to quit back to main menu or back to the previous menu
 ### [Help]
 
     > ?
-Brings up a condensed version of this list of user options
+Brings up a condensed version of this list of user options available
 
 ### [Add Task]
 
@@ -14,7 +18,7 @@ Brings up a condensed version of this list of user options
 Brings up a menu to add your task and add extra details
 ### [Quick Add]
 
-    > ++
+    > *
 Shortcut to add your task without any other details
 ### [Access List]
 
