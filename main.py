@@ -29,8 +29,10 @@ def input_loop():
                 Functions().clear()
                 Inputs().add("quick")
             elif user_input == "/":
+                Functions().clear()
                 Inputs().access_list()
             elif user_input == "-":
-                Inputs().modify_item("delete")
+                Functions().clear()
+                Inputs().delete_item()
         else:
             print("*INVALID INPUT*")
