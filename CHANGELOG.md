@@ -1,4 +1,9 @@
-
+# v0.2.8 **"Taskview and quality of life changes"**
+- functions.py
+    - small changes in formatting
+    - removing redundancies
+    - small rework of priority feature
+- menu.py functioning taskview feature
 # v0.2.7 **"Hotfix for deleting items with bolded tasks"**
 - functions.py
     - added ability to clear priority level
