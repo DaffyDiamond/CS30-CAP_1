@@ -29,8 +29,11 @@ Thank you for using my program :)
 
     def opened_list(self):
         """Check what the current list is"""
-        with open("RESTRICTED_FILE.txt", "r") as f:
-            return f.read()
+        try:
+            with open("RESTRICTED_FILE.txt", "r") as f:
+                return f.read()
+        except:
+            return "list"
 
     def external(self, the_list, the_item, read):
         """External file handling for list items"""
