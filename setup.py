@@ -1,3 +1,8 @@
+"""
+Name: Ashish Panda
+Description: Setup file
+"""
+
 from cx_Freeze import setup, Executable
 
 executables = [Executable("menu.py")]
