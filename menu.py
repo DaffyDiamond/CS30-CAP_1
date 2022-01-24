@@ -28,7 +28,7 @@ while True:
     elif menu == "2":
         Functions().clear()
         print(f"// {Functions().opened_list()}")
-        with open(f"{Functions().opened_list()}.txt", "r") as f:
+        with open(f"{Functions().opened_list()}.txt", "r+") as f:
             print("\n" + f.read())
             input("\n\n[PRESS ANY KEY TO GO BACK]")
             Functions().clear()
