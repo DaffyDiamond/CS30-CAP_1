@@ -17,7 +17,7 @@ while True:
 [1] INPUT
 [2] TASKVIEW
 
-[C] CREDITS
+[A] ABOUT
 [Q] QUIT
 
 > """)
@@ -37,10 +37,11 @@ while True:
             with open(f"{Functions().opened_list()}.txt", "w") as f:
                 input("\n\n[PRESS ANY KEY TO GO BACK]")
                 Functions().clear()
-    elif menu.lower() == "c":
+    elif menu.lower() == "a":
         Functions().clear()
-        Functions().print_credits()
+        Functions().print_about()
         input("[PRESS ANY KEY TO GO BACK]")
+        Functions().clear()
     elif menu.lower() == "q":
         Functions().clear()
         sys.exit()

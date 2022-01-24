@@ -1,3 +1,11 @@
+# v1.0.0 **"Official release"**
+- updated HELP file to include steps to running program
+- added README & HELP file in release
+- added function list at top of input loop
+- clearing credits in the menu (renamed to about)
+- version number shown in about page
+- added icon
+- updated setup.py
 # v0.3.0 **"Hotfix for exception handling"**
 > - setup.py created
 - menu.py & functions.py 

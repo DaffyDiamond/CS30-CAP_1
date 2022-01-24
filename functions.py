@@ -13,16 +13,20 @@ except ImportError:
 class Functions:
     """Stores general functions"""
 
-    def print_credits(self):
+    def print_about(self):
         """Displays the credits"""
         print("""
-C R E D I T S
+A B O U T
 
 Bamboo Taskview
 by Ashish Panda
 
+v1.0.0
 CS30-CAP_1
 2021-2022
+
+Icon created by:
+Freepik from flaticon.com
 
 Thank you for using my program :)
         """)
@@ -63,7 +67,7 @@ class Inputs:
 
     def print_help(self):
         """Displays all possible user inputs"""
-        print("\nH E L P\n")
+        print("\nO P T I O N S\n")
         for option in OPTIONS:
             print(option, OPTIONS[option])
 
