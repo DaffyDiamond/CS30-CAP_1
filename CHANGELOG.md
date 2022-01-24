@@ -1,3 +1,7 @@
+# v0.3.0 **"Hotfix for exception handling"**
+> - setup.py created
+- menu.py & functions.py 
+    - updated exception handling for list text file
 # v0.2.9 **"Efficiency updates and final touches"**
 - functions.py
     - creating new function for deleting items
