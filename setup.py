@@ -3,7 +3,7 @@ Name: Ashish Panda
 Description: Setup file
 """
 
-try:    
+try:
     from cx_Freeze import setup, Executable
 except:
     input("*IMPORT ERROR\n*")
