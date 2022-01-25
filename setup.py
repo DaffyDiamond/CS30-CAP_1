@@ -3,7 +3,10 @@ Name: Ashish Panda
 Description: Setup file
 """
 
-from cx_Freeze import setup, Executable
+try:    
+    from cx_Freeze import setup, Executable
+except:
+    input("*IMPORT ERROR\n*")
 
 executables = [
     Executable(
