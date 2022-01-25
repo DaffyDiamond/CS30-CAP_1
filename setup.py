@@ -16,7 +16,7 @@ executables = [
 setup(
     name="Bamboo Taskview",
     version="1.0.0",
-    description="Beta Release",
+    description="Official Release",
     executables=executables,
     options={"build_exe": {"include_files": ["HELP.md", "README.md"]}}
 )
