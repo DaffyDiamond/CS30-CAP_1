@@ -6,6 +6,7 @@
 - version number shown in about page
 - added icon
 - updated setup.py
+- pep8 guideline updates
 # v0.3.0 **"Hotfix for exception handling"**
 > - setup.py created
 - menu.py & functions.py 
